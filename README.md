@@ -11,6 +11,7 @@
 1. 进入 [湘大教务系统](http://jwxt.xtu.edu.cn/jsxsd/) 登录，点击课表查询，完成后截图如下
 
 ![图1](Screenshots/screenshot1.png)
+
 2. 点击 `打印` 按钮即可，保存至本地
 3. 下载仓库的代码
 4. 打开 `iCalendar.py`，修改xls文件名为刚刚从教务系统上下载的文件的名字，运行程序即可看到结果
