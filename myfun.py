@@ -3,7 +3,7 @@ from ics import Calendar, Event, alarm
 import datetime
 from datetime import timedelta
 
-table_times = ["8:00", "9:40", "10:10", "11:50", "14:00", "15:40","16:10", "17:50", "19:00", "20:40", "21:35"]
+table_times = ["8:00", "9:40", "10:10", "11:50", "14:00", "15:40","16:10", "17:50", "19:00", "21:35"]
 
 def createEvent(year, month, day, kind, class_name, class_teacher, class_location):
     """
