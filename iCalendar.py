@@ -19,7 +19,7 @@ c = Calendar()
 for class_kind in range(3,8):
     for day_kind in range(1,8):
         if (sh.cell_value(class_kind,day_kind).strip()==''):
-            continue;
+            continue
         class_str = sh.cell_value(class_kind,day_kind).split('\n')
         pattern = re.compile(r'\d+')
         weeks = re.findall(pattern, class_str[3])
@@ -28,9 +28,9 @@ for class_kind in range(3,8):
             event = createEvent(int(day_str[0]),int(day_str[1]),int(day_str[2]),class_kind-3,class_str[1],class_str[2],class_str[4])
             c.events.add(event)
         if len(class_str) == 5:
-            continue;
+            continue
         elif class_str[1] != class_str[5]:
-            continue;
+            continue
         pattern = re.compile(r'\d+')
         weeks = re.findall(pattern, class_str[7])
         for week in range(eval(weeks[0]),eval(weeks[1])+1):
