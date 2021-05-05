@@ -3,22 +3,29 @@ from ics import Calendar, Event, alarm
 import datetime
 from datetime import timedelta
 
-table_times = ["8:00", "9:40", "10:10", "11:50", "14:00", "15:40","16:10", "17:50", "19:00", "21:35"]
+winter_classtimes = ["8:00", "9:40", "10:10", "11:50", "14:00", "15:40", "16:10", "17:50", "19:00", "21:35"]
+summer_classtimes = ["8:00", "9:40", "10:10", "11:50", "14:30", "16:10", "16:40", "18:20", "19:30", "22:05"]
 
 def createEvent(year, month, day, kind, class_name, class_teacher, class_location):
     """
     创建事件
     """
+    # 冬夏季作息表更换
+    if (month >= 5 & month < 10):
+        classtimes = summer_classtimes
+    else:
+        classtimes = winter_classtimes
+
     e = Event()
     e.name = class_name
-    table_time = table_times[kind*2].split(':')
-    hours = eval(table_time[0])
-    minutes = eval(table_time[1])
+    table_time = classtimes[kind*2].split(':')
+    hours = int(table_time[0])
+    minutes = int(table_time[1])
     seconds = 0
     start_time = arrow.Arrow(year, month, day, hours, minutes, seconds, tzinfo='local')
-    table_time = table_times[kind*2+1].split(':')
-    hours = eval(table_time[0])
-    minutes = eval(table_time[1])
+    table_time = classtimes[kind*2+1].split(':')
+    hours = int(table_time[0])
+    minutes = int(table_time[1])
     seconds = 0
     end_time = arrow.Arrow(year, month, day, hours, minutes, seconds, tzinfo='local')
     e.begin = start_time.format()
